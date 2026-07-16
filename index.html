@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nur Dent — стоматологическая клиника в Астане</title>
+<meta name="description" content="Стоматологическая клиника Nur Dent в Астане: лечение кариеса, брекеты, элайнеры, имплантация, детская стоматология. Район Есиль, рядом с ТРЦ Хан Шатыр.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0d9aa5;
+    --teal-dark:#0a7c85;
+    --teal-light:#e6f6f7;
+    --mint:#d7f2ea;
+    --ink:#123138;
+    --muted:#5b7a81;
+    --white:#ffffff;
+    --bg:#f7fcfc;
+    --border:#dcefef;
+    --shadow:0 10px 30px rgba(13,154,165,.10);
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+  .container{max-width:1140px;margin:0 auto;padding:0 20px}
+  section{padding:72px 0}
+  .section-tag{
+    display:inline-block;
+    background:var(--teal-light);
+    color:var(--teal-dark);
+    font-size:13px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 14px;border-radius:100px;
+    margin-bottom:14px;
+  }
+  h2{font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:12px}
+  .section-sub{color:var(--muted);max-width:560px;margin-bottom:40px}
+
+  /* ---------- Header ---------- */
+  .header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;gap:16px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px}
+  .logo svg{width:34px;height:34px;flex-shrink:0}
+  .logo span{color:var(--teal)}
+  .nav{display:flex;gap:28px;font-weight:600;font-size:15px}
+  .nav a{color:var(--muted);transition:color .2s}
+  .nav a:hover{color:var(--teal)}
+  .header-actions{display:flex;align-items:center;gap:14px}
+  .header-phone{font-weight:700;font-size:15px;white-space:nowrap}
+  .header-phone:hover{color:var(--teal)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;border-radius:100px;
+    font-weight:700;font-size:15px;font-family:inherit;
+    cursor:pointer;border:none;transition:.2s;white-space:nowrap;
+  }
+  .btn-primary{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(13,154,165,.35)}
+  .btn-primary:hover{background:var(--teal-dark);transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--teal-dark);border:2px solid var(--teal)}
+  .btn-outline:hover{background:var(--teal-light)}
+  .btn-wa{background:#25d366;color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.35)}
+  .btn-wa:hover{background:#1fb857;transform:translateY(-1px)}
+  .btn svg{width:18px;height:18px}
+
+  .burger{
+    display:none;background:none;border:none;cursor:pointer;
+    width:44px;height:44px;border-radius:12px;
+    align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .burger:hover{background:var(--teal-light)}
+  .burger span{
+    display:block;width:22px;height:2px;background:var(--ink);
+    position:relative;transition:.25s;
+  }
+  .burger span::before,.burger span::after{
+    content:'';position:absolute;left:0;width:22px;height:2px;
+    background:var(--ink);transition:.25s;
+  }
+  .burger span::before{top:-7px}
+  .burger span::after{top:7px}
+  .menu-open .burger span{background:transparent}
+  .menu-open .burger span::before{top:0;transform:rotate(45deg)}
+  .menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+
+  .mobile-menu{
+    display:none;
+    border-top:1px solid var(--border);
+    background:#fff;
+    padding:12px 20px 24px;
+  }
+  .menu-open .mobile-menu{display:block}
+  .mobile-menu a{
+    display:block;padding:13px 4px;font-weight:600;font-size:16px;
+    border-bottom:1px solid var(--border);color:var(--ink);
+  }
+  .mobile-menu a:last-of-type{border-bottom:none}
+  .mobile-menu .btn{width:100%;margin-top:14px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(160deg,var(--teal-light) 0%,var(--mint) 55%,#fff 100%);
+    padding:88px 0 80px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.15fr .85fr;
+    gap:48px;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(32px,5.2vw,54px);
+    font-weight:800;line-height:1.12;
+    margin-bottom:18px;
+  }
+  .hero h1 em{font-style:normal;color:var(--teal)}
+  .hero-sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:480px;margin-bottom:30px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .hero-facts{display:flex;gap:14px;flex-wrap:wrap}
+  .fact{
+    display:flex;align-items:center;gap:10px;
+    background:#fff;border:1px solid var(--border);
+    border-radius:14px;padding:10px 16px;
+    font-size:14px;font-weight:600;box-shadow:var(--shadow);
+  }
+  .fact svg{width:20px;height:20px;color:var(--teal);flex-shrink:0}
+
+  .hero-art{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-circle{
+    width:min(380px,100%);aspect-ratio:1;
+    background:radial-gradient(circle at 30% 25%,#fff 0%,var(--teal-light) 60%,var(--mint) 100%);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 30px 60px rgba(13,154,165,.18);
+  }
+  .hero-circle svg{width:55%;height:55%}
+  .hero-badge{
+    position:absolute;
+    background:#fff;border-radius:16px;
+    padding:12px 18px;box-shadow:var(--shadow);
+    font-size:14px;font-weight:700;
+    border:1px solid var(--border);
+  }
+  .hero-badge small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+  .badge-1{top:8%;left:0}
+  .badge-2{bottom:10%;right:0}
+
+  /* ---------- About ---------- */
+  .about{background:#fff}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .about-text p{color:var(--muted);margin-bottom:16px;font-size:17px}
+  .about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .stat{
+    background:var(--bg);border:1px solid var(--border);
+    border-radius:var(--radius);padding:26px 22px;text-align:center;
+  }
+  .stat b{display:block;font-size:34px;font-weight:800;color:var(--teal);line-height:1.1}
+  .stat span{font-size:14px;color:var(--muted);font-weight:600}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--bg)}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:22px;
+  }
+  .service{
+    background:#fff;border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px 26px;
+    display:flex;flex-direction:column;gap:12px;
+    transition:.25s;
+  }
+  .service:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--teal)}
+  .service-icon{
+    width:52px;height:52px;border-radius:14px;
+    background:var(--teal-light);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .service-icon svg{width:26px;height:26px}
+  .service h3{font-size:19px;font-weight:700}
+  .service p{color:var(--muted);font-size:15px;flex-grow:1}
+  .service-price{
+    font-weight:800;color:var(--teal-dark);font-size:17px;
+    padding-top:12px;border-top:1px dashed var(--border);
+  }
+
+  /* ---------- Doctors ---------- */
+  .doctors-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:22px;max-width:960px;
+    align-items:start;
+  }
+  .doctor{
+    background:#fff;border:1px solid var(--border);
+    border-radius:var(--radius);padding:34px 26px;
+    text-align:center;transition:.25s;
+  }
+  .doctor:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .avatar{
+    width:96px;height:96px;border-radius:50%;
+    margin:0 auto 18px;
+    background:linear-gradient(135deg,var(--teal) 0%,#3fbfc9 100%);
+    color:#fff;font-size:32px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .doctor h3{font-size:19px;font-weight:800;margin-bottom:4px}
+  .doctor-role{color:var(--teal-dark);font-weight:700;font-size:14px;margin-bottom:10px}
+  .doctor-exp{
+    display:inline-block;background:var(--mint);color:var(--teal-dark);
+    font-size:13px;font-weight:700;padding:4px 12px;border-radius:100px;
+    margin-bottom:12px;
+  }
+  .doctor p{color:var(--muted);font-size:14.5px}
+  .btn-more{
+    margin-top:18px;
+    background:none;border:2px solid var(--teal);color:var(--teal-dark);
+    font-family:inherit;font-weight:700;font-size:14px;
+    padding:9px 22px;border-radius:100px;cursor:pointer;transition:.2s;
+  }
+  .btn-more:hover{background:var(--teal-light)}
+  .btn-more::after{content:'▾';margin-left:7px;display:inline-block;transition:.25s}
+  .doctor.open .btn-more::after{transform:rotate(180deg)}
+  .doctor-details{
+    display:none;text-align:left;
+    margin-top:18px;padding-top:18px;
+    border-top:1px dashed var(--border);
+  }
+  .doctor.open .doctor-details{display:block}
+  .detail{margin-bottom:12px}
+  .detail b{
+    display:block;font-size:12px;font-weight:800;
+    color:var(--teal-dark);text-transform:uppercase;letter-spacing:.05em;
+    margin-bottom:2px;
+  }
+  .detail span{font-size:14px;color:var(--muted);line-height:1.5}
+  .doctor-quote{
+    background:var(--teal-light);border-left:3px solid var(--teal);
+    border-radius:0 12px 12px 0;
+    padding:12px 16px;margin-top:14px;
+    font-style:italic;font-size:14px;color:var(--ink);
+  }
+
+  /* ---------- Reviews ---------- */
+  .reviews{background:var(--bg)}
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+  }
+  .review{
+    background:#fff;border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px 26px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .stars{color:#f5b301;font-size:18px;letter-spacing:2px}
+  .review p{color:var(--ink);font-size:15px;flex-grow:1}
+  .review-author{display:flex;align-items:center;gap:12px}
+  .review-author .avatar{width:44px;height:44px;font-size:16px;margin:0}
+  .review-author b{display:block;font-size:15px}
+  .review-author span{font-size:13px;color:var(--muted)}
+
+  /* ---------- Contacts ---------- */
+  .contacts-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  }
+  .contact-list{display:flex;flex-direction:column;gap:20px;margin-bottom:32px}
+  .contact-item{display:flex;gap:16px;align-items:flex-start}
+  .contact-item .icon{
+    width:46px;height:46px;border-radius:13px;flex-shrink:0;
+    background:var(--teal-light);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .contact-item .icon svg{width:22px;height:22px}
+  .contact-item b{display:block;font-size:16px;margin-bottom:2px}
+  .contact-item span,.contact-item a{color:var(--muted);font-size:15px}
+  .contact-item a:hover{color:var(--teal)}
+  .contact-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  .contact-card{
+    background:linear-gradient(150deg,var(--teal) 0%,#0b8691 100%);
+    color:#fff;border-radius:24px;padding:40px 36px;
+    box-shadow:0 24px 50px rgba(13,154,165,.30);
+  }
+  .contact-card h3{font-size:26px;font-weight:800;margin-bottom:10px}
+  .contact-card p{opacity:.92;margin-bottom:26px;font-size:15.5px}
+  .contact-card .btn{width:100%;margin-bottom:12px}
+  .contact-card .btn-white{background:#fff;color:var(--teal-dark)}
+  .contact-card .btn-white:hover{background:var(--teal-light)}
+  .contact-card .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .contact-card .btn-ghost:hover{background:rgba(255,255,255,.24)}
+  .contact-card small{display:block;text-align:center;opacity:.8;font-size:13px}
+
+  /* ---------- Footer ---------- */
+  .footer{
+    background:var(--ink);color:#bcd6da;
+    padding:36px 0;font-size:14px;
+  }
+  .footer-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+  }
+  .footer .logo{color:#fff;font-size:19px}
+  .footer a:hover{color:#fff}
+
+  /* ---------- Tablet ---------- */
+  @media (max-width:960px){
+    .nav{display:none}
+    .header-phone{display:none}
+    .header-actions .btn{display:none}
+    .burger{display:flex}
+    section{padding:56px 0}
+    .hero{padding:56px 0}
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero-art{order:-1}
+    .hero-circle{width:min(280px,70vw)}
+    .about-grid{grid-template-columns:1fr;gap:36px}
+    .contacts-grid{grid-template-columns:1fr;gap:36px}
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:560px){
+    .hero-actions .btn{width:100%}
+    .hero-facts{flex-direction:column;align-items:stretch}
+    .about-stats{grid-template-columns:repeat(2,1fr);gap:12px}
+    .stat{padding:20px 12px}
+    .stat b{font-size:26px}
+    .hero-badge{padding:9px 13px;font-size:12.5px}
+    .contact-card{padding:30px 22px}
+    .footer-inner{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo" aria-label="Nur Dent — на главную">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0d9aa5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-1.8-4-2.5-6-1.5C3.5 5.3 3 8 4 10.5c1.2 3 2 6.5 3.5 8.5.8 1 2 .7 2.3-.5.3-1.5.5-3.5 2.2-3.5s1.9 2 2.2 3.5c.3 1.2 1.5 1.5 2.3.5 1.5-2 2.3-5.5 3.5-8.5 1-2.5.5-5.2-2-6.5-2-1-4.5-.3-6 1.5z"/></svg>
+      Nur&nbsp;<span>Dent</span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#about">О клинике</a>
+      <a href="#services">Услуги</a>
+      <a href="#doctors">Врачи</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+77089443591" class="header-phone">+7 708 944 35 91</a>
+      <a href="https://wa.me/77089443591" target="_blank" rel="noopener" class="btn btn-primary">Записаться</a>
+      <button class="burger" aria-label="Открыть меню" onclick="document.body.classList.toggle('menu-open')"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="#about" onclick="document.body.classList.remove('menu-open')">О клинике</a>
+    <a href="#services" onclick="document.body.classList.remove('menu-open')">Услуги</a>
+    <a href="#doctors" onclick="document.body.classList.remove('menu-open')">Врачи</a>
+    <a href="#reviews" onclick="document.body.classList.remove('menu-open')">Отзывы</a>
+    <a href="#contacts" onclick="document.body.classList.remove('menu-open')">Контакты</a>
+    <a href="tel:+77089443591" onclick="document.body.classList.remove('menu-open')">📞 +7 708 944 35 91</a>
+    <a href="https://wa.me/77089443591" target="_blank" rel="noopener" class="btn btn-wa">Записаться в WhatsApp</a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <h1>Стоматология <em>Nur&nbsp;Dent</em> — забота о вашей улыбке</h1>
+      <p class="hero-sub">Современная клиника в Астане: лечим взрослых и детей бережно, без боли и с гарантией результата.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/77089443591" target="_blank" rel="noopener" class="btn btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5 13.9c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.5-.1 1z"/></svg>
+          Записаться в WhatsApp
+        </a>
+        <a href="#services" class="btn btn-outline">Смотреть услуги</a>
+      </div>
+      <div class="hero-facts">
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Пн–Сб 8:00–20:00
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Рядом с ТРЦ Хан Шатыр
+        </div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0d9aa5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-1.8-4-2.5-6-1.5C3.5 5.3 3 8 4 10.5c1.2 3 2 6.5 3.5 8.5.8 1 2 .7 2.3-.5.3-1.5.5-3.5 2.2-3.5s1.9 2 2.2 3.5c.3 1.2 1.5 1.5 2.3.5 1.5-2 2.3-5.5 3.5-8.5 1-2.5.5-5.2-2-6.5-2-1-4.5-.3-6 1.5z" fill="#ffffff"/></svg>
+      </div>
+      <div class="hero-badge badge-1">5 лет<small>опыта работы</small></div>
+      <div class="hero-badge badge-2">Взрослые и дети<small>приём с 3 лет</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="section-tag">О клинике</span>
+      <h2>Стоматология, в которую не страшно идти</h2>
+      <p>Клиника Nur Dent работает в Астане с 2021 года. Мы используем современное оборудование и проверенные материалы, чтобы лечение проходило комфортно и предсказуемо.</p>
+      <p>У нас уютно и взрослым, и детям: внимательные врачи, бережный подход и атмосфера без «больничного» стресса.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><b>5</b><span>лет работаем<br>для вас</span></div>
+      <div class="stat"><b>7</b><span>направлений<br>лечения</span></div>
+      <div class="stat"><b>3+</b><span>принимаем детей<br>с трёх лет</span></div>
+      <div class="stat"><b>6/7</b><span>дней в неделю<br>Пн–Сб 8:00–20:00</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-tag">Услуги</span>
+    <h2>Чем мы можем помочь</h2>
+    <p class="section-sub">Основные направления клиники. Точную стоимость врач назовёт после бесплатной консультации и осмотра.</p>
+    <div class="services-grid">
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-1.8-4-2.5-6-1.5C3.5 5.3 3 8 4 10.5c1.2 3 2 6.5 3.5 8.5.8 1 2 .7 2.3-.5.3-1.5.5-3.5 2.2-3.5s1.9 2 2.2 3.5c.3 1.2 1.5 1.5 2.3.5 1.5-2 2.3-5.5 3.5-8.5 1-2.5.5-5.2-2-6.5-2-1-4.5-.3-6 1.5z"/></svg></div>
+        <h3>Лечение кариеса</h3>
+        <p>Лечение без боли под местной анестезией, пломбы из современных композитов и эстетическая реставрация.</p>
+        <div class="service-price">от 15 000 ₸</div>
+      </div>
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 14l.9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9z"/></svg></div>
+        <h3>Профессиональная чистка</h3>
+        <p>Ультразвук + Air Flow: снятие налёта и зубного камня, полировка и укрепление эмали за один визит.</p>
+        <div class="service-price">от 12 000 ₸</div>
+      </div>
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8c2.5-2 5-3 8-3s5.5 1 8 3"/><path d="M4 16c2.5 2 5 3 8 3s5.5-1 8-3"/><circle cx="7" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="17" cy="12" r="1.6"/><path d="M8.6 12h1.8M13.6 12h1.8"/></svg></div>
+        <h3>Брекет-системы</h3>
+        <p>Металлические и керамические брекеты. Исправление прикуса с планом лечения от врача-ортодонта.</p>
+        <div class="service-price">от 250 000 ₸ · полный курс</div>
+      </div>
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10c0-3 3-5.5 7-5.5S19 7 19 10c0 2.5-1.5 4-3.5 4.5-1 .3-2.2.5-3.5.5s-2.5-.2-3.5-.5C6.5 14 5 12.5 5 10z"/><path d="M5.5 13.5c-.5 2 0 4.5 1.5 6 .8.8 2-.2 2-1.3V16m9.5-2.5c.5 2 0 4.5-1.5 6-.8.8-2-.2-2-1.3V16"/></svg></div>
+        <h3>Элайнеры (капы)</h3>
+        <p>Прозрачные капы — незаметная альтернатива брекетам. Комфортно носить, легко снимать во время еды.</p>
+        <div class="service-price">от 400 000 ₸ · полный курс</div>
+      </div>
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8.5c-1.2-1.4-3.2-2-4.8-1.2-2 1-2.4 3.2-1.6 5.2 1 2.4 1.6 5.2 2.8 6.8.6.8 1.6.6 1.8-.4.3-1.2.4-2.8 1.8-2.8s1.5 1.6 1.8 2.8c.2 1 1.2 1.2 1.8.4 1.2-1.6 1.8-4.4 2.8-6.8.8-2 .4-4.2-1.6-5.2-1.6-.8-3.6-.2-4.8 1.2z"/><path d="M12 8.5V3M9.5 4.5L12 3l2.5 1.5"/></svg></div>
+        <h3>Имплантация</h3>
+        <p>Восстановление утраченных зубов на имплантах проверенных систем. Консультация и 3D-планирование.</p>
+        <div class="service-price">от 180 000 ₸ · за единицу</div>
+      </div>
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+        <h3>Отбеливание зубов</h3>
+        <p>Безопасное профессиональное отбеливание: заметный результат за одно посещение без вреда для эмали.</p>
+        <div class="service-price">от 35 000 ₸</div>
+      </div>
+
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M9 7.5c.5.8 1.6 1.3 3 1.3s2.5-.5 3-1.3"/><path d="M5 21c.5-3.5 3.3-6 7-6s6.5 2.5 7 6"/></svg></div>
+        <h3>Детская стоматология</h3>
+        <p>Лечение и профилактика для детей от 3 лет: игровой подход, мультики и никакого страха перед врачом.</p>
+        <div class="service-price">от 10 000 ₸ · за приём</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== DOCTORS ========== -->
+<section id="doctors">
+  <div class="container">
+    <span class="section-tag">Наша команда</span>
+    <h2>Врачи клиники</h2>
+    <p class="section-sub">Специалисты с профильным образованием, которые постоянно повышают квалификацию.</p>
+    <div class="doctors-grid">
+
+      <div class="doctor">
+        <div class="avatar">АН</div>
+        <h3>Асель Нурланова</h3>
+        <div class="doctor-role">Стоматолог-терапевт</div>
+        <div class="doctor-exp">Стаж 8 лет</div>
+        <p>Лечение кариеса, эстетическая реставрация, лечение каналов.</p>
+        <div class="doctor-details">
+          <div class="detail"><b>Образование</b><span>КазНМУ им. Асфендиярова, стоматологический факультет, 2016 год</span></div>
+          <div class="detail"><b>Специализация</b><span>Лечение кариеса, эстетическая реставрация, лечение каналов</span></div>
+          <div class="detail"><b>Доп. курсы</b><span>Повышение квалификации по эстетической реставрации (Алматы, 2022)</span></div>
+          <div class="doctor-quote">«Стараюсь, чтобы каждый пациент уходил без страха перед следующим визитом»</div>
+        </div>
+        <button class="btn-more" onclick="toggleDoctor(this)">Подробнее</button>
+      </div>
+
+      <div class="doctor">
+        <div class="avatar">ДК</div>
+        <h3>Данияр Кенжебаев</h3>
+        <div class="doctor-role">Ортодонт</div>
+        <div class="doctor-exp">Стаж 6 лет</div>
+        <p>Исправление прикуса: брекет-системы и элайнеры.</p>
+        <div class="doctor-details">
+          <div class="detail"><b>Образование</b><span>Медицинский университет Астана, 2018 год</span></div>
+          <div class="detail"><b>Специализация</b><span>Брекет-системы (металлические, керамические), элайнеры, исправление прикуса у взрослых и подростков</span></div>
+          <div class="detail"><b>Доп. курсы</b><span>Сертификация по работе с элайнер-системами (2023)</span></div>
+          <div class="doctor-quote">«Красивая улыбка — это не только эстетика, но и здоровье на годы вперёд»</div>
+        </div>
+        <button class="btn-more" onclick="toggleDoctor(this)">Подробнее</button>
+      </div>
+
+      <div class="doctor">
+        <div class="avatar">ЖА</div>
+        <h3>Жанна Ахметова</h3>
+        <div class="doctor-role">Детский стоматолог</div>
+        <div class="doctor-exp">Стаж 5 лет</div>
+        <p>Лечение и профилактика у детей от 3 лет.</p>
+        <div class="doctor-details">
+          <div class="detail"><b>Образование</b><span>КазНМУ им. Асфендиярова, педиатрическая стоматология, 2019 год</span></div>
+          <div class="detail"><b>Специализация</b><span>Лечение молочных и постоянных зубов у детей, профилактика, работа с детьми со страхом перед стоматологом</span></div>
+          <div class="detail"><b>Доп. курсы</b><span>Детская седация и работа с тревожными пациентами (Алматы, 2023)</span></div>
+          <div class="doctor-quote">«Мой главный принцип — чтобы ребёнок не боялся возвращаться к нам»</div>
+        </div>
+        <button class="btn-more" onclick="toggleDoctor(this)">Подробнее</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <span class="section-tag">Отзывы</span>
+    <h2>Что говорят пациенты</h2>
+    <p class="section-sub">Нам доверяют самое ценное — здоровье и улыбки своих близких.</p>
+    <div class="reviews-grid">
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Лечила кариес у Асель Нурлановны — вообще не почувствовала боли. Врач всё объясняет по ходу, очень спокойно и аккуратно. Теперь только сюда!»</p>
+        <div class="review-author">
+          <div class="avatar">МС</div>
+          <div><b>Мадина С.</b><span>лечение кариеса</span></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Ставили брекеты у Данияра. Понравилось, что сразу показал план лечения и честно рассказал про сроки. Через год результат — ровные зубы, я доволен».</p>
+        <div class="review-author">
+          <div class="avatar">ЕТ</div>
+          <div><b>Ержан Т.</b><span>брекет-системы</span></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Дочка 4 года — боялась стоматологов до слёз. Жанна Ахметовна нашла подход за пять минут: мультики, игрушки, и зуб вылечили без единой слезинки!»</p>
+        <div class="review-author">
+          <div class="avatar">АЖ</div>
+          <div><b>Айгуль Ж.</b><span>детская стоматология</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACTS ========== -->
+<section id="contacts">
+  <div class="container">
+    <span class="section-tag">Контакты</span>
+    <h2>Как нас найти</h2>
+    <p class="section-sub">Мы находимся в районе Есиль, в двух шагах от ТРЦ Хан Шатыр.</p>
+    <div class="contacts-grid">
+
+      <div>
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div><b>Адрес</b><span>г. Астана, район Есиль,<br>ул. Кабанбай батыра, 15 (рядом с ТРЦ Хан Шатыр)</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+            <div><b>Телефон / WhatsApp</b><a href="tel:+77089443591">+7 708 944 35 91</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><b>Часы работы</b><span>Пн–Сб: 8:00–20:00<br>Вс: выходной</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></div>
+            <div><b>Instagram</b><a href="https://instagram.com/zhanibekwork" target="_blank" rel="noopener">@zhanibekwork</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Запишитесь на приём</h3>
+        <p>Напишите нам в WhatsApp или позвоните — администратор подберёт удобное время и ответит на вопросы.</p>
+        <a href="https://wa.me/77089443591?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC%20%D0%B2%20Nur%20Dent" target="_blank" rel="noopener" class="btn btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5 13.9c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.5-.1 1z"/></svg>
+          Написать в WhatsApp
+        </a>
+        <a href="tel:+77089443591" class="btn btn-white">Позвонить: +7 708 944 35 91</a>
+        <small>Отвечаем в рабочее время: Пн–Сб 8:00–20:00</small>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3fbfc9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-1.8-4-2.5-6-1.5C3.5 5.3 3 8 4 10.5c1.2 3 2 6.5 3.5 8.5.8 1 2 .7 2.3-.5.3-1.5.5-3.5 2.2-3.5s1.9 2 2.2 3.5c.3 1.2 1.5 1.5 2.3.5 1.5-2 2.3-5.5 3.5-8.5 1-2.5.5-5.2-2-6.5-2-1-4.5-.3-6 1.5z"/></svg>
+      Nur&nbsp;<span>Dent</span>
+    </a>
+    <div>© 2026 Стоматологическая клиника Nur Dent · Астана</div>
+    <a href="https://instagram.com/zhanibekwork" target="_blank" rel="noopener">@zhanibekwork</a>
+  </div>
+</footer>
+
+<script>
+  function toggleDoctor(btn){
+    const card = btn.closest('.doctor');
+    const open = card.classList.toggle('open');
+    btn.childNodes[0].textContent = open ? 'Скрыть' : 'Подробнее';
+  }
+</script>
+
+</body>
+</html>
